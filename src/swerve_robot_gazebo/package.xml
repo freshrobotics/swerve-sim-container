@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>swerve_robot_gazebo</name>
+  <version>0.0.1</version>
+  <description>Gazebo simulation for swerve robot</description>
+  <maintainer email="robotics@freshconsulting.com">root</maintainer>
+  <license>TODO: License declaration</license>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <depend>controller_manager</depend>
+  <depend>aws_robomaker_small_warehouse_world</depend>
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>swerve_controller</depend>
+  <depend>swerve_robot_description</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
+  <exec_depend>teleop_twist_keyboard</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
