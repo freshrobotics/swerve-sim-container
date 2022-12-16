@@ -1,0 +1,46 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Dummy base link, THIS IS REQUIRED TO MAKE INERTIALS WORK PROPERLY, NO INERTIALS ON ROOT LINK EVER -->
+
+  <xacro:macro name="base" params="name">
+
+    <!-- Root link of model tree -->
+    <link name="${name}" />
+
+  </xacro:macro>
+
+  <!-- Robot Body-->
+  <xacro:macro name="chassis" params="name parent">
+
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 5.21904025701792E-05 0.108402855968814" rpy="0 0 0" />
+        <mass value="1.78446713847014" />
+        <inertia ixx="0.114563750887795" ixy="1.00505607229726E-06" ixz="-0.00308015585160256" iyy="0.25640701981465" iyz="-1.26769813175445E-06" izz="0.33939943437936" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find swerve_robot_description)/meshes/base_link.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find swerve_robot_description)/meshes/base_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="body_joint" type="fixed">
+      <parent link="${parent}" />
+      <child link="${name}" />
+    </joint>
+
+    <gazebo reference="${name}">
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
