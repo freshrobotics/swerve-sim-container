@@ -1,0 +1,11 @@
+<CycloneDDS>
+  <Domain>
+    <General>
+      <Interfaces><NetworkInterface name="lo" /></Interfaces>
+    </General>
+    <Discovery>
+      <ParticipantIndex>auto</ParticipantIndex>
+      <MaxAutoParticipantIndex>119</MaxAutoParticipantIndex>
+    </Discovery>
+  </Domain>
+</CycloneDDS>
