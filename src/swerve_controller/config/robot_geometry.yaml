@@ -1,0 +1,11 @@
+swerve_commander:
+  ros__parameters:
+    wheelbase: 0.36
+    wheel_track: 0.36
+    wheel_radius: 0.0935
+    max_motor_speed: 250.0
+swerve_odometer:
+  ros__parameters:
+    wheelbase: 0.36
+    wheel_track: 0.36
+    wheel_radius: 0.0935

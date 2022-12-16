@@ -1,0 +1,14 @@
+[flake8]
+max-line-length = 80
+docstring_convention = all
+ignore = D203,D213,D406,D407,N812,W503
+extend-ignore = E203
+exclude =
+    # Ignore git directory
+    .git,
+    # Ignore cache & Build directories
+    __pycache__,
+    build,
+    # This contains builds of flake8 that we don't want to check
+    dist
+black-config = pyproject.toml
