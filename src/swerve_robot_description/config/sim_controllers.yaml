@@ -1,0 +1,112 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    steering_front_right:
+      type: position_controllers/JointGroupPositionController
+
+    steering_front_left:
+      type: position_controllers/JointGroupPositionController
+
+    steering_rear_right:
+      type: position_controllers/JointGroupPositionController
+
+    steering_rear_left:
+      type: position_controllers/JointGroupPositionController
+
+    wheel_front_right:
+      type: velocity_controllers/JointGroupVelocityController
+
+    wheel_front_left:
+      type: velocity_controllers/JointGroupVelocityController
+
+    wheel_rear_right:
+      type: velocity_controllers/JointGroupVelocityController
+
+    wheel_rear_left:
+      type: velocity_controllers/JointGroupVelocityController
+
+# Position Controllers ---------------------------------------
+steering_front_right:
+  ros__parameters:
+    joints:
+      - steering_front_right_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+steering_front_left:
+  ros__parameters:
+    joints:
+      - steering_front_left_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+steering_rear_left:
+  ros__parameters:
+    joints:
+      - steering_rear_left_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+steering_rear_right:
+  ros__parameters:
+    joints:
+      - steering_rear_right_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+# Velocity Controllers ---------------------------------------
+wheel_front_right:
+  ros__parameters:
+    joints:
+      - wheel_front_right_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+
+wheel_front_left:
+  ros__parameters:
+    joints:
+      - wheel_front_left_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+
+wheel_rear_left:
+  ros__parameters:
+    joints:
+      - wheel_rear_left_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+
+wheel_rear_right:
+  ros__parameters:
+    joints:
+      - wheel_rear_right_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Top-level file for generating the platform -->
+
+<robot name="swerve_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:arg name="sim" default="false" />
+    <xacro:property name="sim" value="$(arg sim)" />
+
+    <!-- Import swerve robot (without any payload) -->
+    <xacro:include filename="$(find swerve_robot_description)/urdf/include/swerve_robot_base.xacro" />
+    <xacro:swerve_robot_base />
+
+    <xacro:if value="${sim}">
+        <!-- Import gazebo ros2 control plugin -->
+        <xacro:include filename="$(find swerve_robot_description)/urdf/include/swerve_ros2_control.xacro" />
+        <xacro:swerve_gazebo_ros2_control />
+    </xacro:if>
+
+    <!-- Import sensor payload xacro file here-->
+
+</robot>
