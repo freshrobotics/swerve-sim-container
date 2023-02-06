@@ -6,7 +6,7 @@
   <description>Gazebo simulation for swerve robot</description>
   <maintainer email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</maintainer>
   <author email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</author>
-  <license>TODO: License declaration</license>
+  <license>Apache-2.0</license>
 
   <depend>aws_robomaker_small_warehouse_world</depend>
   <depend>controller_manager</depend>

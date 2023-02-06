@@ -6,7 +6,7 @@
   <description>Meshes and urdf for a swerve drive robot</description>
   <maintainer email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</maintainer>
   <author email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</author>
-  <license>TODO: License declaration</license>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

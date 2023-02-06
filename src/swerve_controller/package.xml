@@ -7,7 +7,7 @@
   <description>ros controller for swerve drive vehicles</description>
   <maintainer email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</maintainer>
   <author email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</author>
-  <license>TODO</license>
+  <license>Apache-2.0</license>
 
   <depend>control_msgs</depend>
   <depend>gazebo_ros2_control</depend>
