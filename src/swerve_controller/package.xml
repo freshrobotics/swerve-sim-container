@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>swerve_controller</name>
+  <version>0.1.0</version>
+  <description>ros controller for swerve drive vehicles</description>
+  <maintainer email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</maintainer>
+  <author email="robotics@freshconsulting.com">Robotics @ Fresh Consulting</author>
+  <license>Apache-2.0</license>
+
+  <depend>control_msgs</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>gazebo_ros</depend>
+  <depend>geometry_msgs</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>rclpy</depend>
+  <depend>ros2_controllers</depend>
+  <depend>ros2launch</depend>
+  <depend>std_msgs</depend>
+  <depend>tf_transformations</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

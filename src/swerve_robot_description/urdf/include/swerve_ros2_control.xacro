@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:arg name="gazebo_controllers" default="$(find swerve_robot_description)/config/sim_controllers.yaml" />
+
+  <!-- Wheel transmission -->
+  <xacro:macro name="wheel_transmission" params="locationprefix">
+    <joint name="wheel_${locationprefix}_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </xacro:macro>
+
+  <!-- Steer transmission -->
+  <xacro:macro name="steer_transmission" params="locationprefix">
+    <joint name="steering_${locationprefix}_joint">
+      <command_interface name="position">
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="swerve_gazebo_ros2_control">
+
+    <ros2_control name="swerve_robot_gazebo_system" type="system">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+      <xacro:wheel_transmission locationprefix="front_right" />
+      <xacro:wheel_transmission locationprefix="front_left" />
+      <xacro:wheel_transmission locationprefix="rear_left" />
+      <xacro:wheel_transmission locationprefix="rear_right" />
+      <xacro:steer_transmission locationprefix="front_right" />
+      <xacro:steer_transmission locationprefix="front_left" />
+      <xacro:steer_transmission locationprefix="rear_left" />
+      <xacro:steer_transmission locationprefix="rear_right" />
+      
+    </ros2_control>
+
+    <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <parameters>$(arg gazebo_controllers)</parameters>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

@@ -1,0 +1,39 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Steering Link + Joint -->
+  <xacro:macro name="steering" params="locationprefix locx locy">
+    <link name="${locationprefix}_steering_link">
+      <inertial>
+        <origin xyz="0.0 0.0 0.060941" rpy="0 0 0" />
+        <mass value="0.030421" />
+        <inertia ixx="0.00022406" ixy="-5.3036E-09" ixz="-1.2289E-08" iyy="0.00021285" iyz="-2.5969E-08" izz="0.00027948" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find swerve_robot_description)/meshes/${locationprefix}_steering_link.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find swerve_robot_description)/meshes/${locationprefix}_steering_link.dae" />
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="${locationprefix}_steering_link">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <joint name="steering_${locationprefix}_joint" type="revolute">
+      <origin xyz="${locx} ${locy} 0.0" rpy="0 0 0" />
+      <parent link="chassis_link" />
+      <child link="${locationprefix}_steering_link" />
+      <axis xyz="0 0 1" />
+      <limit effort="20" velocity="6.28" lower="-2.1" upper="2.1" />
+    </joint>
+
+  </xacro:macro>
+
+</robot>

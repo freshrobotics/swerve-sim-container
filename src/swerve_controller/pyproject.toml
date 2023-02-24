@@ -1,0 +1,16 @@
+[tool.black]
+line-length = 80
+target-version = ['py37','py38','py39']
+
+[tool.isort]
+line_length = 80
+profile = "black"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "launch"
+follow_imports = "skip"

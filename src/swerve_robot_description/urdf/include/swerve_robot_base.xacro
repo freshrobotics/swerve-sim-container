@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Top-level file for generating the swerve drive robot -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="swerve_robot_base">
+    <!-- MACRO FILES, ALLOW FOR GENERATION OF THE VARIOUS PARTS-->
+
+    <!-- Import chassis and dummy base link-->
+    <xacro:include filename="$(find swerve_robot_description)/urdf/include/robot_parts/chassis.xacro" />
+
+    <!-- Import steering links and joints -->
+    <xacro:include filename="$(find swerve_robot_description)/urdf/include/robot_parts/steering.xacro" />
+
+    <!-- Import wheel links and joints -->
+    <xacro:include filename="$(find swerve_robot_description)/urdf/include/robot_parts/wheel.xacro" />
+
+    <!-- GENERATION, GENERATES THE ROBOT FROM MACROS -->
+
+    <!-- Main chassis + dummy base link -->
+    <xacro:base name="base_link" />
+    <xacro:chassis name="chassis_link" parent="base_link" />
+
+    <!-- Steering Links + Joints -->
+    <xacro:steering locationprefix="front_right" locx="0.18" locy="-0.18" />
+    <xacro:steering locationprefix="front_left" locx="0.18" locy="0.18" />
+    <xacro:steering locationprefix="rear_left" locx="-0.18" locy="0.18" />
+    <xacro:steering locationprefix="rear_right" locx="-0.18" locy="-0.18" />
+
+    <!-- Wheel Links + Joints -->
+    <xacro:wheel locationprefix="front_right" />
+    <xacro:wheel locationprefix="front_left" />
+    <xacro:wheel locationprefix="rear_left" />
+    <xacro:wheel locationprefix="rear_right" />
+
+  </xacro:macro>
+
+</robot>
